@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+<meta charset="UTF-8">
+<title>com_page_pagination_form.html</title>
+</head>
+<body>
+
+	<!-- Pagination Form -->
+	<div id="com_page_pagination_form"
+		th:fragment="com_page_pagination_form" style="display: none">
+		<form th:action="@{/}+${com_url}+'.shopping'" method="get">
+			<input id="com_page_pageNum" name="pageNum" value=""> <input
+				id="com_page_pageSize" name="pageSize" value=""> <input
+				id="keywords" name="keywords" th:value="${keyWords}"> <input
+				id="com_page_btn" type="submit">
+		</form>
+	</div>
+
+	<!-- ==================================================================================================================================== -->
+	<!-- (Filters)Pagination UI-->
+	<div id="com_page_pagination_paginationUI"
+		th:fragment="com_page_pagination_paginationUI"
+		class="product-filter filters-panel">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="view-mode">
+					<div class="list-view">
+						<button class="btn btn-default grid active" data-view="grid"
+							data-toggle="tooltip" data-original-title="Grid">
+							<i class="fa fa-th"></i>
+						</button>
+						<button class="btn btn-default list" data-view="list"
+							data-toggle="tooltip" data-original-title="List">
+							<i class="fa fa-th-list"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="short-by-show form-inline text-right ">
+				<div class="form-group short-by"
+					th:replace="com_page :: com_page_blank">
+					<label class="control-label" for="input-sort">Sort By:</label> <select
+						id="input-sort" class="form-control"
+						onchange="location = this.value;">
+						<option value="" selected="selected">Default</option>
+						<option value="">Name (A - Z)</option>
+						<option value="">Name (Z - A)</option>
+						<option value="">Price (Low &gt; High)</option>
+						<option value="">Price (High &gt; Low)</option>
+						<option value="">Rating (Highest)</option>
+						<option value="">Rating (Lowest)</option>
+						<option value="">Model (A - Z)</option>
+						<option value="">Model (Z - A)</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="input-limit">Show:</label> 
+					<select id="input-limit" class="form-control">
+						<option th:value="${pageSize}" th:text="${pageSize}" selected>5</option>
+						<option value="8" >8</option>
+						<option value="12">12</option>
+						<option value="20">20</option>
+						<option value="44">44</option>
+						<option value="80">80</option>
+						<option value="120">120</option>
+					</select>
+				</div>
+			</div>
+			<div class="box-pagination text-right">
+				<ul class="pagination">
+					<li class="active"><span>1</span></li>
+					<li><a href="">2</a></li>
+					<li><a href="">&gt;</a></li>
+					<li><a href="">&gt;|</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //end Filters -->
+
+	<!-- ==================================================================================================================================== -->
+	<!-- Filters -->
+	<div id="com_page_pagination_paginationUI2"
+		th:fragment="com_page_pagination_paginationUI2"
+		class="product-filter product-filter-bottom filters-panel">
+		<div class="row">
+			<div class="col-md-2 hidden-sm hidden-xs"></div>
+			<div class="short-by-show text-center col-md-7 col-sm-8 col-xs-12">
+				<div class="form-group" style="margin: 7px 10px"
+					th:replace="com_page :: com_page_blank">Showing 1 to 9 of 10
+					(2 Pages)</div>
+			</div>
+			<div class="box-pagination text-right">
+				<ul class="pagination">
+					<li class="active"><span>1</span></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">&gt;</a></li>
+					<li><a href="#">&gt;|</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!-- //end Filters -->
+	
+	<!-- ==================================================================================================================================== -->
+	
+</body>
+</html>

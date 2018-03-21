@@ -1,0 +1,17 @@
+<li class="account visible-md visible-lg hidden-sm hidden-xs"><a href="#" title="My Account"
+	class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span>My
+			Account</span> <span class="fa fa-angle-down"></span></a>
+	<ul class="dropdown-menu ">
+		<li><a th:href="@{/user/registpage.shopping}"><i
+				class="fa fa-user"></i> Register</a></li>
+		<li><a th:href="@{/user/loginpage.shopping}"><i
+				class="fa fa-pencil-square-o"></i> Login</a></li>
+	</ul></li>
+
+<li class="account visible-sm visible-xs hidden-md hidden-lg" id="register_top"><a
+	th:href="@{/user/registpage.shopping}" title="My Account"
+	class="btn btn-xs dropdown-toggle"> <span>Register</span></a></li>
+
+<li class="account visible-sm visible-xs hidden-md hidden-lg" id="login_top"><a
+	th:href="@{/user/loginpage.shopping}" title="My Account"
+	class="btn btn-xs dropdown-toggle"> <span>Login</span></a></li>

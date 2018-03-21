@@ -1,0 +1,285 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Information</title>
+	<meta charset="utf-8">
+	    
+	<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage">
+
+     
+
+
+    <div id="wrapper" class="wrapper-full ">
+	<!-- Header Container  -->
+	<div th:include="com_page :: com_page_head"></div>
+	<!-- //Header Container  -->
+	<!-- Main Container  -->
+	<div class="main-container container">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+			<li><a th:href="@{/user/account.shopping}">Account</a></li>
+			<li><a href="#">Personal Information</a></li>
+		</ul>
+		
+		<div class="row">
+			<div id="content" class="col-sm-12">
+				<h2 class="title info"> Account Information</h2>
+				<h2 class="title edit">Edit Account</h2>
+				<form th:action="@{/user/userinfoedit.shopping}" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix" th:object="${userInfo}">
+				<input type="hidden" th:field="*{ver}">
+				<fieldset>
+						<legend th:replace="com_page :: com_page_blank"> Account Information</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-username">User Name</label>
+							<div class="col-sm-10" th:text="*{username}">
+								user name
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="imghead">Picture</label>
+							<div class="col-sm-10 big-photo edit">
+								<div id="preview">
+									<img id="imghead" border="0" th:src="${userInfo.imageDir} != null ? @{/}+${userInfo.imageDir} : @{/image/upload/photo_icon.png}"
+										width="90" height="90" onclick="$('#previewImg').click();">
+								</div>
+								<input type="file" name="imgFile" onchange="previewImage(this)"
+									style="display: none;" id="previewImg">
+								<!--<input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple="">-->
+							</div>
+							<div class="col-sm-10 info" th:if="${userInfo.imageDir} != null">
+								<img alt="profile photo" th:src="@{/}+${userInfo.imageDir}"
+									width="90" height="90">
+							</div>
+							<div class="col-sm-10 info" th:if="${userInfo.imageDir} == null">NONE</div>
+							
+						</div>
+						<div class="form-group edit">
+							<label class="col-sm-2 control-label" for="input-username">&nbsp;</label>
+							<div class="col-sm-10">
+								<label id='input-username-error' for='input-username'>
+									<div style='color:#FF5733' ;=''>
+										<a onclick="$('#previewImg').click();">Click Here To Change Picture<p> Size Limit In 2MB.</a>
+									</div>
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id="account">
+						<legend>Details Personal Information</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-firstname">First Name</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{firstname}"></div>
+								<input type="text" name="firstname" th:value="*{firstname}" placeholder="First Name" id="input-firstname" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{lastname}"></div>
+								<input type="text" name="lastname" th:value="*{lastname}" placeholder="Last Name" id="input-lastname" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-email">E-Mail</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{email}"></div>
+								<input type="email" name="email" th:value="*{email}" placeholder="E-Mail" id="input-email" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-telephone">Telephone</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{telephone}"></div>
+								<input type="tel" name="telephone" th:value="*{telephone}" placeholder="Telephone" id="input-telephone" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-fax">Fax</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{fax}"></div>
+								<input type="text" name="fax" th:value="*{fax}" placeholder="Fax" id="input-fax" class="form-control edit">
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id="address">
+						<legend>My Address</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-company">Company</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{company}"></div>
+								<input type="text" name="company" th:value="*{company}" placeholder="Company" id="input-company" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-address-1">Address 1</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{address1}"></div>
+								<input type="text" name="address_1" th:value="*{address1}" placeholder="Address 1" id="input-address-1" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-address-2">Address 2</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{address2}"></div>
+								<input type="text" name="address_2" th:value="*{address2}" placeholder="Address 2" id="input-address-2" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-city">City</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{city}"></div>
+								<input type="text" name="city" th:value="*{city}" placeholder="City" id="input-city" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-postcode">Post Code</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{postCode}"></div>
+								<input type="text" name="postcode" th:value="*{postCode}" placeholder="Post Code" id="input-postcode" class="form-control edit">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-country">Country</label>
+							<div class="col-sm-10">
+								<div class="info" th:text="*{country}"></div>
+								<select name="country_id" id="input-country" class="form-control edit">
+									<option value="Malta">Malta</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset th:include="com_page :: com_page_blank">
+						<legend>Newsletter</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Subscribe</label>
+							<div class="col-sm-10">
+								<label class="radio-inline">
+									<input type="radio" name="newsletter" value="1"> Yes
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="newsletter" value="0" checked="checked"> No
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<div class="buttons edit">
+						<div class="pull-right">
+							<input type="submit" value="Continue" class="btn btn-primary">
+						</div>
+					</div>
+					<div class="buttons edit">
+						<div class="pull-right">
+							&nbsp;&nbsp;&nbsp;
+						</div>
+					</div>					
+					<div class="buttons edit">
+						<div class="pull-right">
+							<a href="#content"><input id="cancelButton" type="button" value="Cancel" class="btn btn-primary"></a>
+						</div>
+					</div>
+					<div class="buttons info">
+						<div class="pull-right">
+								<a href="#content"><input id="editButton" type="button" value="Edit My Information" class="btn btn-primary"></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //Main Container -->
+	
+
+	<!-- Footer Container -->
+	<div th:include="com_page :: com_page_foot"></div>
+	<!-- //end Footer Container -->
+
+    </div>
+		
+	<div th:replace="com_page :: com_page_foot_tag"></div>	
+	
+	<div th:replace="com_page :: com_page_script"></div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".edit").hide();
+			$("#editButton").click(function(){
+				$(".info").hide();
+				$(".edit").show();
+			});
+			$("#cancelButton").click(function(){
+				$(".info").show();
+				$(".edit").hide();
+			});
+		});
+		
+		
+		//图片上传预览    IE是用了滤镜。
+		function previewImage(file) {
+			var MAXWIDTH = 90;
+			var MAXHEIGHT = 90;
+			var div = document.getElementById('preview');
+			if (file.files && file.files[0]) {
+				div.innerHTML = '<img id=imghead onclick=$("#previewImg").click()>';
+				var img = document.getElementById('imghead');
+				img.onload = function() {
+					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
+							img.offsetWidth, img.offsetHeight);
+					img.width = rect.width;
+					img.height = rect.height;
+					//                 img.style.marginLeft = rect.left+'px';
+					img.style.marginTop = rect.top + 'px';
+				}
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					img.src = evt.target.result;
+				}
+				reader.readAsDataURL(file.files[0]);
+			} else //兼容IE
+			{
+				var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+				file.select();
+				var src = document.selection.createRange().text;
+				div.innerHTML = '<img id=imghead>';
+				var img = document.getElementById('imghead');
+				img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+				var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
+						img.offsetWidth, img.offsetHeight);
+				status = ('rect:' + rect.top + ',' + rect.left + ','
+						+ rect.width + ',' + rect.height);
+				div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+			}
+		}
+		function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+			var param = {
+				top : 0,
+				left : 0,
+				width : width,
+				height : height
+			};
+			if (width > maxWidth || height > maxHeight) {
+				rateWidth = width / maxWidth;
+				rateHeight = height / maxHeight;
+
+				if (rateWidth > rateHeight) {
+					param.width = maxWidth;
+					param.height = Math.round(height / rateWidth);
+				} else {
+					param.width = Math.round(width / rateHeight);
+					param.height = maxHeight;
+				}
+			}
+			param.left = Math.round((maxWidth - param.width) / 2);
+			param.top = Math.round((maxHeight - param.height) / 2);
+			return param;
+		}
+	</script>	
+		
+</body>
+</html>
+

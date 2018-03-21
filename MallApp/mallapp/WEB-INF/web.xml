@@ -1,0 +1,93 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app> 
+	
+	<!-- Website Icon -->
+	<icon>
+    	<small-icon>/image/demo/logos/favicon.ico</small-icon>
+    	<large-icon>/image/demo/logos/favicon.ico</large-icon>
+	</icon>
+	
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- Spring configure -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/root-context.xml,
+			/WEB-INF/config/thymeleaf-config.xml,
+			/WEB-INF/config/dataSource.xml,
+			/WEB-INF/config/mybatis-config.xml,
+			<!-- spring security -->
+			/WEB-INF/config/spring-security.xml,
+			<!-- spring-mvc file-upload -->
+			/WEB-INF/config/springmvc-upload.xml
+			<!-- spring transaction -->
+			/WEB-INF/config/spring-transaction.xml
+		</param-value>
+	</context-param>
+	
+	<!-- spring security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	 
+	 <!-- catike security filter(弃用) -->
+	 <!-- 
+	 <filter>
+	 	<filter-name>catikeSecurityFilterChain</filter-name>
+	 	<filter-class>com.catike_mall.catike_security.AccessSecurityFilter</filter-class>
+	 </filter>
+	 <filter-mapping>
+	 	<filter-name>catikeSecurityFilterChain</filter-name>
+	 	<url-pattern>*.shopping</url-pattern>
+	 </filter-mapping>
+	  -->
+	 	
+	<!-- spring framework listener -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Spring get Request & Session -->
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
+	<!-- Exposure Task -->
+	<listener>
+		<listener-class>com.catike_mall.listener.ExposureTask</listener-class>
+	</listener>
+
+	<!-- spring dispatcher -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- spring mapping configure -->
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.shopping</url-pattern>
+	</servlet-mapping>
+
+	<!-- Website Welcome Page -->
+	<welcome-file-list>
+		<welcome-file>/base/homepage.shopping</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/index.html</location>
+	</error-page>
+</web-app>

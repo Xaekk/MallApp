@@ -1,0 +1,542 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title th:if="${keyWords} != '' and ${keyWords} != null" th:text="'Goods Search : '+(${keyWords} == '' ? '' : ${keyWords})">Goods Search : Name</title>
+	<title th:if="${keyWords} == null or ${keyWords} == ''">Mall Malta.com,Shop All You Want!</title>
+	<meta charset="utf-8">
+    
+	<div th:include="com_page :: com_page_headTag"></div>	
+</head>
+
+<body class="res layout-subpage banners-effect-6">
+
+     
+
+
+    <div id="wrapper" class="wrapper-full ">
+	<!-- Header Container  -->
+	<div th:include="com_page :: com_page_head"></div>
+	<!-- //Header Container  -->
+	<!-- Main Container  -->
+	<div class="main-container container">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+			<li><a href="#">Goods Search</a></li>
+		</ul>
+		
+		<div class="row">
+			<!--Left Part Start -->
+			<aside class="col-sm-4 col-md-3" id="column-left" th:replace="com_page :: com_page_blank">
+				<div class="module menu-category titleLine">
+	<h3 class="modtitle">Categories</h3>
+	<div class="modcontent">
+		<div class="box-category">
+			<ul id="cat_accordion" class="list-group">
+				<li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone & Tablets</a>   <span class="button-view  fa fa-plus-square-o"></span>
+					<ul style="display: block;">
+						<li><a href="category.html">Men's Watches</a></li>
+						<li><a href="category.html">Women's Watches</a></li>
+						<li><a href="category.html">Kids' Watches</a></li>
+						<li><a href="category.html">Accessories</a></li>
+					</ul>
+				</li>
+				<li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a>   <span class="button-view  fa fa-plus-square-o"></span>
+					<ul style="display: none;">
+						<li><a href="category.html">Cycling</a></li>
+						<li><a href="category.html">Running</a></li>
+						<li><a href="category.html">Swimming</a></li>
+						<li><a href="category.html">Football</a></li>
+						<li><a href="category.html">Golf</a></li>
+						<li><a href="category.html">Windsurfing</a></li>
+					</ul>
+				</li>
+				<li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a>   <span class="button-view  fa fa-plus-square-o"></span>
+					<ul style="display: none;">
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+					</ul>
+				</li>
+				<li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a>  <span class="button-view  fa fa-plus-square-o"></span>
+					<ul style="display: none;">
+						<li><a href="category.html">Men's Watches</a></li>
+						<li><a href="category.html">Women's Watches</a></li>
+						<li><a href="category.html">Kids' Watches</a></li>
+						<li><a href="category.html">Accessories</a></li>
+					</ul>
+				</li>
+				<li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a>    <span class="button-view  fa fa-plus-square-o"></span>
+					<ul style="display: none;">
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+						<li><a href="category.html">Sub Categories</a></li>
+					</ul>
+				</li>
+				<li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a>  <span class="dcjq-icon"></span></li>
+				<li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a>    <span class="dcjq-icon"></span></li>
+				<li class=""><a href="category.html" class="cutom-parent">Sports</a>  <span class="dcjq-icon"></span></li>
+				<li class=""><a href="category.html" class="cutom-parent">Home &amp; Garden</a><span class="dcjq-icon"></span></li>
+				<li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a>  <span class="dcjq-icon"></span></li>
+			</ul>
+		</div>
+		
+		
+	</div>
+</div>
+				<div class="module latest-product titleLine">
+   <h3 class="modtitle">Latest Product</h3>
+   <div class="modcontent ">
+		<div class="product-latest-item">
+			<div class="media">
+			   <div class="media-left">
+				  <a href="#"><img src="image/demo/shop/product/m1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+			   </div>
+			   <div class="media-body">
+				  <div class="caption">
+					 <h4><a href="#">Sunt Molup</a></h4>
+					
+					 <div class="price">
+						<span class="price-new">$100.00</span>
+					 </div>
+					 <div class="ratings">
+						<div class="rating-box">
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						</div>
+					 </div>
+				  </div>
+				  
+			   </div>
+			</div>
+		</div>
+		<div class="product-latest-item">
+			<div class="media">
+			   <div class="media-left">
+				  <a href="#"><img src="image/demo/shop/product/m2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+			   </div>
+			   <div class="media-body">
+				  <div class="caption">
+					 <h4><a href="#">Et Spare</a></h4>
+					
+					 <div class="price">
+						<span class="price-new">$99.00</span>
+					 </div>
+					 <div class="ratings">
+						<div class="rating-box">
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+						</div>
+					 </div>
+				  </div>
+				  
+			   </div>
+			</div>
+		</div>
+		<div class="product-latest-item">
+			<div class="media">
+			   <div class="media-left">
+				  <a href="#"><img src="image/demo/shop/product/18.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+			   </div>
+			   <div class="media-body">
+				  <div class="caption">
+					 <h4><a href="#">Cisi Chicken</a></h4>
+					
+					 <div class="price">
+						<span class="price-new">$59.00</span>
+					 </div>
+					 <div class="ratings">
+						<div class="rating-box">
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+						</div>
+					 </div>
+				  </div>
+				  
+			   </div>
+			</div>
+		</div>
+		<div class="product-latest-item transition">
+			<div class="media">
+			   <div class="media-left">
+				  <a href="#"><img src="image/demo/shop/product/9.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height:82px;"></a>
+			   </div>
+			   <div class="media-body">
+				  <div class="caption">
+					 <h4><a href="#">Kevin Labor</a></h4>
+					 <div class="price">
+						<span class="price-new">$245.00</span>
+					 </div>
+					 <div class="ratings">
+						<div class="rating-box">
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+						   <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+						</div>
+					 </div>
+				  </div>
+				 
+			   </div>
+			</div>
+		 </div>
+		
+		
+   </div>
+   
+</div>
+				<div class="module">
+					<div class="modcontent clearfix">
+						<div class="banners">
+							<div>
+								<a href="#"><img src="image/demo/cms/left-image-static.png" alt="left-image"></a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</aside>
+			<!--Left Part End -->
+			
+			<!--Middle Part Start-->
+			<!--/* div id="content" class="col-md-9 col-sm-8" */-->
+			<div id="content" class="col-md-12 col-sm-12">
+				<div class="products-category">
+					<div class="category-derc" th:replace="com_page :: com_page_blank">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="banners">
+									<div>
+										<a  href="#"><img th:src="@{/image/demo/shop/category/electronic-cat.png}" alt="Apple Cinema 30&quot;"><br></a>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					
+					<div th:replace="com_page_pagination :: com_page_pagination_paginationUI"></div>
+					
+					<!--changed listings-->
+					<div class="products-list row grid">
+
+							<div class="product-layout col-md-3 col-sm-6 col-xs-12 " th:each="goodsInfo : ${goodsInfoList}" th:object="${goodsInfo}">
+								<div class="product-item-container">
+									<a th:href="@{/base/getGoodsInfo.shopping?goodsInfoPkId=}+*{pkId}">
+									<div class="left-block">
+										<div class="product-image-container second_img ">
+											<img th:data-src="@{/}+*{imageDir}" th:src="@{/}+*{imageDir}"
+												alt="Apple Cinema 30&quot;" class="img-responsive" /> <img
+												th:data-src="@{/}+*{imageDir}" th:src="@{/}+*{imageDir}"
+												alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+										</div>
+										<!--Sale Label-->
+										<!--/* span class="label label-new">New</span> <span
+											class="label label-sale">Sale</span */-->
+										<!--countdown box-->
+										<!--/* div class="countdown_box">
+											<div class="countdown_inner">
+												<div class="title">This limited offer ends</div>
+
+												<div class="defaultCountdown-30"></div>
+											</div>
+										</div */-->
+										<!--end countdown box-->
+
+										<!--full quick view block-->
+										<!--/* a class="quickview iframe-link visible-lg"
+											data-fancybox-type="iframe" href="#"> Quickview</a */-->
+										<!--end full quick view block-->
+									</div>
+									</a>
+
+									<div class="right-block">
+										<div class="caption">
+											<h4>
+												<a th:href="@{/base/getGoodsInfo.shopping?goodsInfoPkId=}+*{pkId}" th:text="*{name}">Filet Mign</a>
+											</h4>
+											<div class="ratings" th:replace="com_page :: com_page_blank">
+												<div class="rating-box">
+													<span class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star-o fa-stack-1x"></i></span>
+												</div>
+											</div>
+
+											<div class="price">
+												<span class="price-new" th:text="*{'€'+price}">$58.00</span> 
+												<!--/* span class="price-old">$172.00</span> 
+												<span class="label label-percent">-40%</span */-->
+											</div>
+											<div class="description item-desc hidden">
+												<p th:text="*{briefIntroduction}">Lorem ipsum dolor sit amet, consetetur sadipscing
+													elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+													dolore magna aliquyam erat, sed diam voluptua. At vero eos
+													et accusam et justo duo dolores et ea rebum. Stet clita
+													kasd gubergren, no sea takimata sanctus est .</p>
+											</div>
+										</div>
+
+										<div class="button-group" th:replace="com_page :: com_page_blank">
+											<button class="addToCart" type="button" data-toggle="tooltip"
+												title="Add to Cart" onclick="cart.add('42', '1');">
+												<i class="fa fa-shopping-cart"></i> <span class="hidden-xs">Add
+													to Cart</span>
+											</button>
+											<button class="wishlist" type="button" data-toggle="tooltip"
+												title="Add to Wish List" onclick="wishlist.add('42');">
+												<i class="fa fa-heart"></i>
+											</button>
+											<button class="compare" type="button" data-toggle="tooltip"
+												title="Compare this Product" onclick="compare.add('42');">
+												<i class="fa fa-exchange"></i>
+											</button>
+										</div>
+									</div>
+									<!-- right block -->
+
+								</div>
+							</div>
+
+						</div>
+					<div th:replace="com_page_pagination :: com_page_pagination_paginationUI2"></div>
+					
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		<!--Middle Part End-->
+	</div>
+	<!-- //Main Container -->
+	
+
+	<!-- Footer Container -->
+	<div th:include="com_page :: com_page_foot">
+	<footer class="footer-container">
+		<!-- Footer Top Container -->
+		<section class="footer-top">
+			<div class="container content">
+				<div class="row">
+					<div class="col-sm-6 col-md-3 box-information">
+						<div class="module clearfix">
+							<h3 class="modtitle">Information</h3>
+							<div class="modcontent">
+								<ul class="menu">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">FAQ</a></li>
+									<li><a href="#">Order history</a></li>
+									<li><a href="#">Order information</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-3 box-service">
+						<div class="module clearfix">
+							<h3 class="modtitle">Customer Service</h3>
+							<div class="modcontent">
+								<ul class="menu">
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Returns</a></li>
+									<li><a href="#">Site Map</a></li>
+									<li><a href="#">My Account</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-3 box-account">
+						<div class="module clearfix">
+							<h3 class="modtitle">My Account</h3>
+							<div class="modcontent">
+								<ul class="menu">
+									<li><a href="#">Brands</a></li>
+									<li><a href="#">Gift Vouchers</a></li>
+									<li><a href="#">Affiliates</a></li>
+									<li><a href="#">Specials</a></li>
+									<li><a href="#" target="_blank">Our Blog</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-3 collapsed-block ">
+						<div class="module clearfix">
+							<h3 class="modtitle">Contact Us	</h3>
+							<div class="modcontent">
+								<ul class="contact-address">
+									<li><span class="fa fa-map-marker"></span> My Company, 42 avenue des Champs Elysées 75000 Paris France</li>
+									<li><span class="fa fa-envelope-o"></span> Email: <a href="#"> sales@yourcompany.com</a></li>
+									<li><span class="fa fa-phone">&nbsp;</span> Phone 1: 0123456789 <br>Phone 2: (123) 4567890</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-12 collapsed-block footer-links">
+						<div class="module clearfix">
+							<div class="modcontent">
+								<hr class="footer-lines">
+								<div class="footer-directory-title">
+									<h4 class="label-link">Top Stores : Brand Directory | Store Directory</h4>
+									<ul class="footer-directory">
+										<li>
+											<h4>MOST SEARCHED KEYWORDS MARKET:</h4>
+											<a href="#">Xiaomi Mi3</a> | <a href="#">Digiflip Pro XT 712 Tablet</a> | <a href="#">Mi 3 Phones</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>MOBILES:</h4>
+											<a href="#">Moto E</a> | <a href="#">Samsung Mobile</a> | <a href="#">Micromax Mobile</a> | <a href="#">Nokia Mobile</a> | <a href="#">HTC Mobile</a> | <a href="#">Sony Mobile</a> | <a href="#">Apple Mobile</a> | <a href="#">LG Mobile</a> | <a href="#">Karbonn Mobile</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>CAMERA:</h4>
+											<a href="#">Nikon Camera</a> | <a href="#">Canon Camera</a> | <a href="#">Sony Camera</a> | <a href="#">Samsung Camera</a> | <a href="#">Point shoot camera</a> | <a href="#">Camera Lens</a> | <a href="#">Camera Tripod</a> | <a href="#">Camera Bag</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>LAPTOPS:</h4>
+											<a href="#">Apple Laptop</a> | <a href="#">Acer Laptop</a> | <a href="#">Sony Laptop</a> | <a href="#">Dell Laptop</a> | <a href="#">Asus Laptop</a> | <a href="#">Toshiba Laptop</a> | <a href="#">LG Laptop</a> | <a href="#">HP Laptop</a> | <a href="#">Notebook</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>TVS:</h4>
+											<a href="#">Sony TV</a> | <a href="#">Samsung TV</a> | <a href="#">LG TV</a> | <a href="#">Panasonic TV</a> | <a href="#">Onida TV</a> | <a href="#">Toshiba TV</a> | <a href="#">Philips TV</a> | <a href="#">Micromax TV</a> | <a href="#">LED TV</a> | <a href="#">LCD TV</a> | <a href="#">Plasma TV</a> | <a href="#">3D TV</a> | <a href="#">Smart TV</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>TABLETS:</h4>
+											<a href="#">Micromax Tablets</a> | <a href="#">HCL Tablets</a> | <a href="#">Samsung Tablets</a> | <a href="#">Lenovo Tablets</a> | <a href="#">Karbonn Tablets</a> | <a href="#">Asus Tablets</a> | <a href="#">Apple Tablets</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>WATCHES:</h4>
+											<a href="#">FCUK Watches</a> | <a href="#">Titan Watches</a> | <a href="#">Casio Watches</a> | <a href="#">Fastrack Watches</a> | <a href="#">Timex Watches</a> | <a href="#">Fossil Watches</a> | <a href="#">Diesel Watches</a> | <a href="#">Luxury Watches</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>CLOTHING:</h4>
+											<a href="#">Shirts</a> | <a href="#">Jeans</a> | <a href="#">T shirts</a> | <a href="#">Kurtis</a> | <a href="#">Sarees</a> | <a href="#">Levis Jeans</a> | <a href="#">Killer Jeans</a> | <a href="#">Pepe Jeans</a> | <a href="#">Arrow Shirts</a> | <a href="#">Ethnic Wear</a> | <a href="#">Formal Shirts</a> | <a href="#">Peter England Shirts</a> | <a href="#">View all</a></li>
+										<li>
+											<h4>FOOTWEAR:</h4>
+											<a href="#">Shoes</a> | <a href="#">Casual Shoes</a> | <a href="#">Adidas Shoes</a> | <a href="#">Gas Shoes</a> | <a href="#">Puma Shoes</a> | <a href="#">Reebok Shoes</a> | <a href="#">Woodland Shoes</a> | <a href="#">Red tape Shoes</a> | <a href="#">Nike Shoes</a> | <a href="#">View all</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Footer Top Container -->
+		
+	</footer>
+	</div>
+	<!-- //end Footer Container -->
+
+    </div>
+	
+	
+	<!-- Cpanel Block -->
+	<div id="sp-cpanel_btn" class="isDown visible-lg"  th:replace="com_page :: com_page_blank">
+	<i class="fa fa-cog"></i>
+</div>		
+
+<div id="sp-cpanel" class="sp-delay" th:replace="com_page :: com_page_blank">
+	<h2 class="sp-cpanel-title"> Demo Options <span class="sp-cpanel-close"> <i class="fa fa-times"> </i></span></h2>
+	<div id="sp-cpanel_settings">
+		<div class="panel-group">
+			<label>Color Scheme</label>
+			<div class="group-schemes" >
+				<span data-scheme="default"  class="item_scheme selected"><span style="background: #e8622d;"></span></span>
+				<span data-scheme="blue" class="item_scheme"><span style="background: #478bca;"></span></span>
+				<span data-scheme="boocdo"  class="item_scheme"><span style="background: #e54e4e;"></span></span>
+				<span data-scheme="cyan" class="item_scheme"><span style="background: #1ea181;"></span></span>
+				<span data-scheme="green" class="item_scheme "><span style="background: #52a633;"></span></span>
+				
+			 </div>
+		</div>
+		
+		<div class="panel-group ">
+			<label>Header style</label>
+			<div class="group-boxed">
+				<select id="change_header_type" name="cpheaderstype" class="form-control" onchange="headerTypeChange(this.value);">
+					<option value="header-home1" >Header 1</option>
+					<option value="header-home2" >Header 2</option>
+					<option value="header-home3" >Header 3</option>
+					<option value="header-home4" >Header 4</option>
+				</select>
+			</div>
+		</div>
+		
+		
+		<div class="panel-group ">
+			<label>Layout Box</label>
+			<div class="group-boxed">
+				<select id="cp-layoutbox" name="cplayoutbox" class="form-control" onchange="changeLayoutBox(this.value);">
+					<option value="full">Wide</option>
+					<option value="boxed">Boxed</option>
+					<option value="iframed">Iframed</option>
+					<option value="rounded">Rounded</option>
+				</select>
+			</div>
+		</div>
+		
+        <div class="panel-group">
+			<label>Body Image</label>
+			
+			<div class="group-pattern">
+								<div data-pattern="28"  class="img-pattern"><img src="image/theme/patterns/28.png" alt="pattern 28"></div>
+								<div data-pattern="29"  class="img-pattern"><img src="image/theme/patterns/29.png" alt="pattern 29"></div>
+								<div data-pattern="30"  class="img-pattern"><img src="image/theme/patterns/30.png" alt="pattern 30"></div>
+								<div data-pattern="31"  class="img-pattern"><img src="image/theme/patterns/31.png" alt="pattern 31"></div>
+								<div data-pattern="32"  class="img-pattern"><img src="image/theme/patterns/32.png" alt="pattern 32"></div>
+								<div data-pattern="33"  class="img-pattern"><img src="image/theme/patterns/33.png" alt="pattern 33"></div>
+								<div data-pattern="34"  class="img-pattern"><img src="image/theme/patterns/34.png" alt="pattern 34"></div>
+								<div data-pattern="35"  class="img-pattern"><img src="image/theme/patterns/35.png" alt="pattern 35"></div>
+								<div data-pattern="36"  class="img-pattern"><img src="image/theme/patterns/36.png" alt="pattern 36"></div>
+								<div data-pattern="37"  class="img-pattern"><img src="image/theme/patterns/37.png" alt="pattern 37"></div>
+								<div data-pattern="38"  class="img-pattern"><img src="image/theme/patterns/38.png" alt="pattern 38"></div>
+								<div data-pattern="39"  class="img-pattern"><img src="image/theme/patterns/39.png" alt="pattern 39"></div>
+								<div data-pattern="40"  class="img-pattern"><img src="image/theme/patterns/40.png" alt="pattern 40"></div>
+								<div data-pattern="41"  class="img-pattern"><img src="image/theme/patterns/41.png" alt="pattern 41"></div>
+								<div data-pattern="42"  class="img-pattern"><img src="image/theme/patterns/42.png" alt="pattern 42"></div>
+								<div data-pattern="43"  class="img-pattern"><img src="image/theme/patterns/43.png" alt="pattern 43"></div>
+								<div data-pattern="44"  class="img-pattern"><img src="image/theme/patterns/44.png" alt="pattern 44"></div>
+								<div data-pattern="45"  class="img-pattern"><img src="image/theme/patterns/45.png" alt="pattern 45"></div>
+							</div>
+			<p class="label-sm">Background only applies for Boxed,Framed, Rounded Layout</p>
+		</div>
+		
+		<div class="reset-group">
+		    <a href="index.html" class="btn btn-success " onclick="ResetAll()">Reset</a>
+		</div>
+		
+	</div>
+
+</div>
+
+<link rel='stylesheet' property='stylesheet'  href='css/themecss/cpanel.css' type='text/css' media='all' />
+	
+	
+	<div th:replace="com_page :: com_page_foot_tag"></div>	
+	
+	<div th:replace="com_page :: com_page_script"></div>
+	
+</body>
+</html>
+

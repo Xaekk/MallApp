@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+       	 http://www.springframework.org/schema/beans
+       	 http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://mybatis.org/schema/mybatis-spring 
+         http://mybatis.org/schema/mybatis-spring.xsd">
+
+	<!-- mybatis configure -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="mapperLocations" value="classpath*:com/catike_mall/mapper/**/*.xml" />
+		<property name="dataSource" ref="dataSource_Druid" />
+		
+		<property name="typeAliasesPackage" value="com.isea533.mybatis.model"/>
+	    <property name="plugins">
+	        <array>
+	            <bean class="com.github.pagehelper.PageInterceptor">
+	                <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+	                <property name="properties">
+	                    <value>
+	                       <!-- helperDialect=mysql
+	                        reasonable=true
+	                        supportMethodsArguments=true
+	                        params=count=countSql
+	                        autoRuntimeDialect=true -->
+	                        <!-- List All Resault when [pageSize=0] -->
+	                        pageSizeZero=true
+	                    </value>
+	                </property>
+	            </bean>
+	        </array>
+	    </property>
+		
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.catike_mall.dao.*"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+</beans>

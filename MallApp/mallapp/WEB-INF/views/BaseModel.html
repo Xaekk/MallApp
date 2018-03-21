@@ -1,0 +1,38 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	
+	<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage">
+
+
+    <div id="wrapper" class="wrapper-full ">
+	<!-- Header Container  -->
+	<div th:include="com_page :: com_page_head"></div>
+	<!-- //Header Container  -->
+	<!-- Main Container  -->
+	<div class="main-container container">
+	
+		MAIN-CONTAINER CONTAINER
+	
+	</div>
+	<!-- //Main Container -->
+	
+
+	<!-- Footer Container -->
+	<div th:include="com_page :: com_page_foot"></div>
+	<!-- //end Footer Container -->
+
+    </div>
+	
+	<div th:replace="com_page :: com_page_foot_tag"></div>
+	<div th:replace="com_page :: com_page_script"></div>
+</body>
+</html>
+

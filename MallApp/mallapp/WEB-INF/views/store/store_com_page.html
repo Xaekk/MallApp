@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>store_com_page</title>
+</head>
+<body>
+
+
+				<!--Left Part Start -->
+				<aside class="col-sm-4 col-md-3" id="column-left" th:fragment="left_part">
+					<div class="module menu-category titleLine">
+						<h3 class="modtitle">My Store</h3>
+						<div class="modcontent">
+							<div class="box-category">
+								<ul id="cat_accordion" class="list-group">
+									<li class=""><a id="StoreInfo" th:href="@{/store/storeinfo.shopping}" class="cutom-parent">
+											My Store Information</a> <span class="dcjq-icon"></span></li>
+									<li class=""><a id="NewGoods" th:href="@{/store/newGoodsPage.shopping}" class="cutom-parent">
+											Add New Goods</a> <span class="dcjq-icon"></span></li>
+									<li class=""><a id="OnSale" th:href="@{/store/onSaleInStore.shopping}" class="cutom-parent">
+											On Sale</a> <span class="dcjq-icon"></span></li>
+									<li class=""><a id="Disenable" th:href="@{/store/disenableInStore.shopping}" class="cutom-parent">
+											Disenable</a><span class="dcjq-icon"></span></li>
+								</ul>
+							</div>
+
+
+						</div>
+					</div>
+				</aside>
+				<!--Left Part End -->
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+cd /ZDel
+mkdir ./jdk
+cd ./jdk
+tar -xvf jdk-8u121-linux-x64.tar.gz -C /ZDel/jdk
+source /etc/profile
+

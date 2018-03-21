@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 实际驱动绝对位置 -->
+	<classPathEntry
+		location="D:\mysql-connector-java-5.1.42\mysql-connector-java-5.1.42\mysql-connector-java-5.1.42-bin.jar" />
+	<context id="context1">
+		<jdbcConnection
+			connectionURL="jdbc:mysql://localhost:3306/catike_mall?serverTimezone=UTC"
+			driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.catike_mall.domain.entity.normal"
+			targetProject="mallapp/src/main/java" />
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.catike_mall.mapper.normal"
+			targetProject="mallapp/src/main/java" />
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="com.catike_mall.dao.normal"
+			targetProject="mallapp/src/main/java" type="XMLMAPPER" />
+		<!-- 表 -->
+		<table tableName="goods_detail_dis">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="goods_info">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="store_info">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="user_info">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="advertise">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="inner_mail">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="order_info">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+		<table tableName="shopping_cart">
+			<generatedKey column="PK_ID" sqlStatement="MySql"
+				identity="true"></generatedKey>
+			<!-- columnOverride column="DISCRIBE" property="DISCRIBE" / -->
+		</table>
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,17 @@
+<li class="account">
+<a href="#" title="My Account" class="btn btn-xs dropdown-toggle"
+	data-toggle="dropdown"> <span th:text="${userInfo.username}">Username</span>
+	<span class="fa fa-angle-down"></span></a>
+<ul class="dropdown-menu ">
+	<li><a th:href="@{/user/account.shopping}"><i
+			class="fa fa-user"></i> My Account</a></li>
+	<li><a th:href="@{/user/userinfo.shopping}"><i
+			class="fa fa-user"></i> Pesonal Information</a></li>
+	<li><a th:href="@{/user/changePasswordPage.shopping}"><i
+			class="fa fa-user"></i> Change Password</a></li>
+	<li><form name="form1" th:action="@{/logout}" method="post">
+			<a href="javascript:document.form1.submit();"><i
+				class="fa fa-pencil-square-o"></i> Logout</a>
+		</form></li>
+
+</ul></li>

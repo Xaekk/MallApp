@@ -1,0 +1,6 @@
+<div class="col-md-6 col-sm-6 col-xs-12 " th:each="advertiseList, iterStat : ${adTopOfHomepage}" th:object="${advertiseList}" th:if="${adTopOfHomepage != null}">
+		<div class="pull-right hidden-xs" th:if="${iterStat.odd}"><a th:href="*{url}" ><img class="img-rounded" alt="limit:{height:100px}" th:src="@{/}+'image/advertise/TopOfHomepage/'+*{imageDir}" style="height:100px;"/></a></div>
+		<div class="visible-xs" th:if="${iterStat.odd}"><a th:href="*{url}" ><img class="img-rounded" alt="limit:{height:100px}" th:src="@{/}+'image/advertise/TopOfHomepage/'+*{imageDir}" style="height:100px;"/></a></div>
+		<div class="" th:if="${iterStat.even}"><a th:href="*{url}" ><img class="img-rounded" alt="limit:{height:100px}" th:src="@{/}+'image/advertise/TopOfHomepage/'+*{imageDir}" style="height:100px;"/></a></div>
+		<div class="hidden-xs" th:if="${iterStat.even}"><br></div>
+</div>

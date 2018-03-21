@@ -1,0 +1,168 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- security:http 
+		pattern="/base/homepage.shopping"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/user/loginpage.shopping"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/login"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/logout"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/base/getGoodsInfo.shopping"
+		security="none">
+	</security:http -->
+	<!-- security:http 
+		pattern="/user/myAccount.shopping"
+		security="none">
+	</security:http-->
+
+	<security:http 
+		pattern="/js/**"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/image/**"
+		security="none">
+	</security:http>
+	<security:http 
+		pattern="/css/**"
+		security="none">
+	</security:http>
+	
+	<!-- security:http auto-config="true">
+		<security:csrf disabled="true"/> 
+		<security:intercept-url pattern="/*" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/user/myAccount.shopping" access="hasRole('ROLE_ANONYMOUS')" />
+		<security:form-login login-page="/user/loginpage.shopping"
+			default-target-url="/base/homepage.shopping" />
+		<security:logout delete-cookies="JSESSIONID"
+			invalidate-session="true"/>
+	</security:http -->
+	
+	<security:http auto-config="true">
+		<security:csrf disabled="true"/> 
+		 
+		<!-- User Authority -->
+		<security:intercept-url pattern="/user/account.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/user/userinfo.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/user/userinfoedit.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/user/changePasswordPage.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/user/changePasswordAction.shopping" access="hasRole('ROLE_USER')" />
+		 
+		<!-- Store Authority --> 
+		<security:intercept-url pattern="/store/openStorepage.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/openStoreaction.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/deletestore.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/editStoreAction.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/storeinfo.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/myStoreAccount.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/onSaleInStore.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/disenableInStore.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/newGoodsPage.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/store/getGoodsInfo.shopping" access="hasRole('ROLE_USER')" />
+		
+		<!-- Goods Authority --> 
+		<security:intercept-url pattern="/goods/addgoodsaction.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/goods/deletegoods.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/goods/editGoodsInfoPage.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/goods/editGoodsInfoAction.shopping" access="hasRole('ROLE_USER')" />
+		
+		<!-- ShoppingCart Authority -->
+		<security:intercept-url pattern="/cart/delete.shopping" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/cart/getCurrentCart.shopping" access="hasRole('ROLE_USER')" />
+		
+		<!-- Model
+		<security:intercept-url pattern=".shopping" access="hasRole('ROLE_USER')" />
+		 -->
+		
+		<security:form-login login-page="/user/loginpage.shopping"
+			default-target-url="/base/homepage.shopping" />
+		<security:logout delete-cookies="JSESSIONID"
+			invalidate-session="true"/>
+	</security:http>
+		
+	<!-- security:http auto-config="true">
+		<security:intercept-url 
+			pattern="
+					/base/homepage.shopping,
+				 	/user/loginpage.shopping,
+				 	/login,
+				 	/logout,
+				 	/base/getGoodsInfo.shopping
+					 "
+			access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')" />
+	</security:http-->
+	<!-- auto-config="true" -->
+	<!-- security:http >
+		<security:csrf disabled="true"/> 
+		<security:intercept-url 
+			pattern="/*"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url 
+			pattern="
+					/base/homepage.shopping,
+				 	/user/loginpage.shopping,
+				 	/login,
+				 	/logout,
+				 	/base/getGoodsInfo.shopping
+					 "
+			access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')" />
+		<security:form-login login-page="/user/loginpage.shopping"
+			default-target-url="/base/homepage.shopping" />
+		<security:logout delete-cookies="JSESSIONID"
+			invalidate-session="true"/>
+	</security:http-->
+	
+	<!-- security:http auto-config="true"
+		pattern="/base/homepage.shopping"
+		security="none">
+		<security:csrf disabled="true"/> 
+		<security:intercept-url 
+			pattern="/**"
+			access="hasRole('ROLE_USER')" />
+		<security:form-login login-page="/user/loginpage.shopping"
+			default-target-url="/base/homepage.shopping" />
+		<security:logout delete-cookies="JSESSIONID"
+			invalidate-session="true"/>
+	</security:http -->
+
+	
+	<!-- security:authentication-manager> <security:authentication-provider> 
+		<security:user-service> <security:user name="admin" password="123456" authorities="ROLE_USER" 
+		/> </security:user-service> </security:authentication-provider> </security:authentication-manager -->
+
+	<!-- security:authentication-manager> <security:authentication-provider> 
+		<security:jdbc-user-service data-source-ref="dataSource_Druid" users-by-username-query="select 
+		username, password, enabled from user_info where username = ?" /> </security:authentication-provider> 
+		</security:authentication-manager -->
+
+	<!-- security:authentication-manager> <security:authentication-provider 
+		user-service-ref="userDetailsService" /> </security:authentication-manager> 
+		<bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"> 
+		<property name="dataSource" ref="dataSource_Druid" /> </bean -->
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource_Druid"
+				users-by-username-query="select username, password, enabled from user_info where username = ?"
+				authorities-by-username-query="select username, authority from user_info where username = ?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

@@ -1,0 +1,168 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>On Sale Goods</title>
+<meta charset="utf-8">
+
+<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage banners-effect-6">
+
+
+
+
+	<div id="wrapper" class="wrapper-full ">
+		<!-- Header Container  -->
+		<div th:include="com_page :: com_page_head"></div>
+		<!-- //Header Container  -->
+		<!-- Main Container  -->
+		<div class="main-container container">
+			<ul class="breadcrumb">
+				<li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+				<li><a th:href="@{/user/account.shopping}">Account</a></li>
+				<li><a href="#">On Sale</a></li>
+			</ul>
+
+			<div class="row">
+			<div th:replace="store/store_com_page :: left_part"></div>
+
+				<!--Middle Part Start-->
+				<div id="content" class="col-md-9 col-sm-8">
+					<div class="products-category">
+					
+					<div th:replace="com_page_pagination :: com_page_pagination_paginationUI"></div>
+						
+						<!--changed listings-->
+						<div class="products-list row grid">
+
+							<div class="product-layout col-md-4 col-sm-6 col-xs-12 " th:each="goodsInfo : ${goodsInfoList}" th:object="${goodsInfo}">
+								<div class="product-item-container">
+									<a th:href="@{/store/getGoodsInfo.shopping?goodsInfoPkId=}+*{pkId}">
+									<div class="left-block">
+										<div class="product-image-container second_img ">
+											<img th:data-src="@{/}+*{imageDir}" th:src="@{/}+*{imageDir}"
+												alt="Apple Cinema 30&quot;" class="img-responsive" /> <img
+												th:data-src="@{/}+*{imageDir}" th:src="@{/}+*{imageDir}"
+												alt="Apple Cinema 30&quot;" class="img_0 img-responsive" />
+										</div>
+										<!--Sale Label-->
+										<!--/* span class="label label-new">New</span> <span
+											class="label label-sale">Sale</span */-->
+										<!--countdown box-->
+										<!--/* div class="countdown_box">
+											<div class="countdown_inner">
+												<div class="title">This limited offer ends</div>
+
+												<div class="defaultCountdown-30"></div>
+											</div>
+										</div */-->
+										<!--end countdown box-->
+
+										<!--full quick view block-->
+										<!--/* a class="quickview iframe-link visible-lg"
+											data-fancybox-type="iframe" href="#"> Quickview</a */-->
+										<!--end full quick view block-->
+									</div>
+									</a>
+
+									<div class="right-block">
+										<div class="caption">
+											<h4>
+												<a th:href="@{/store/getGoodsInfo.shopping?goodsInfoPkId=}+*{pkId}" th:text="*{name}">Filet Mign</a>
+											</h4>
+											<div class="ratings" th:replace="com_page :: com_page_blank">
+												<div class="rating-box">
+													<span class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star fa-stack-1x"></i><i
+														class="fa fa-star-o fa-stack-1x"></i></span> <span
+														class="fa fa-stack"><i
+														class="fa fa-star-o fa-stack-1x"></i></span>
+												</div>
+											</div>
+
+											<div class="price">
+												<span class="price-new" th:text="*{'€'+price}">$58.00</span> 
+												<!--/* span class="price-old">$172.00</span> 
+												<span class="label label-percent">-40%</span */-->
+											</div>
+											<div class="description item-desc hidden">
+												<p th:text="*{briefIntroduction}">Lorem ipsum dolor sit amet, consetetur sadipscing
+													elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+													dolore magna aliquyam erat, sed diam voluptua. At vero eos
+													et accusam et justo duo dolores et ea rebum. Stet clita
+													kasd gubergren, no sea takimata sanctus est .</p>
+											</div>
+										</div>
+
+										<div class="button-group" th:replace="com_page :: com_page_blank">
+											<button class="addToCart" type="button" data-toggle="tooltip"
+												title="Add to Cart" onclick="cart.add('42', '1');">
+												<i class="fa fa-shopping-cart"></i> <span class="hidden-xs">Add
+													to Cart</span>
+											</button>
+											<button class="wishlist" type="button" data-toggle="tooltip"
+												title="Add to Wish List" onclick="wishlist.add('42');">
+												<i class="fa fa-heart"></i>
+											</button>
+											<button class="compare" type="button" data-toggle="tooltip"
+												title="Compare this Product" onclick="compare.add('42');">
+												<i class="fa fa-exchange"></i>
+											</button>
+										</div>
+									</div>
+									<!-- right block -->
+
+								</div>
+							</div>
+
+						</div>
+						<!--// End Changed listings-->
+						<div th:replace="com_page_pagination :: com_page_pagination_paginationUI2"></div>
+
+					</div>
+
+				</div>
+
+
+			</div>
+			<!--Middle Part End-->
+		</div>
+		<!-- //Main Container -->
+
+
+		<!-- Footer Container -->
+		<div th:include="com_page :: com_page_foot"></div>
+		<!-- //end Footer Container -->
+
+	</div>
+
+	<div th:replace="com_page :: com_page_foot_tag"></div>
+
+	<div th:replace="com_page :: com_page_script"></div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(function(){
+			$(".edit").hide();
+			$("#StoreInfo").removeClass("active");
+			$("#NewGoods").removeClass("active");
+			$("#OnSale").addClass("active");
+			$("#Disenable").removeClass("active");
+			$("#OnSale").attr("href","#");
+		});
+	</script>
+
+</body>
+</html>
+

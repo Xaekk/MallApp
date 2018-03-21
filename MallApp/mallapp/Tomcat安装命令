@@ -1,0 +1,4 @@
+cd /ZDel
+mkdir ./tomcat
+cd ./tomcat
+tar -xvf /ZiDinyYi/apache-tomcat-9.0.0.M26.tar.gz -C /ZDel/tomcat

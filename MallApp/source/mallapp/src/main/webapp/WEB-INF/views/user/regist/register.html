@@ -1,0 +1,324 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Free Regist</title>
+	<meta charset="utf-8">
+    
+	<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage">
+
+     
+
+
+    <div id="wrapper" class="wrapper-full ">
+	<!-- Header Container  -->
+	<div th:include="com_page :: com_page_head"></div>
+	<!-- //Header Container  -->
+	<!-- Main Container  -->
+	<div class="main-container container">
+		<ul class="breadcrumb">
+			<li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+			<li><a href="#">Account</a></li>
+			<li><a href="#">Register</a></li>
+		</ul>
+		
+		<div class="row">
+			<div id="content" class="col-sm-12">
+				<h2 class="title">Register Account</h2>
+				<p>If you already have an account with us, please login at the <a th:href="@{/user/loginpage.shopping}">login page</a>.</p>
+				<form id="registForm" th:action="@{/user/regist.shopping}" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix" th:object="${userInfo}">
+				<div id="usernameUniqueUrl" style="display : none" th:href="@{/user/usernameUnique.shopping}"></div>
+				<div class="buttons">
+						<div class="">
+							<c th:replace="com_page :: com_page_blank">I have read and agree to the <a href="#" class="agree"><b>Pricing Tables</b></a>
+							<input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;</c>
+							<input type="submit" value="Continue" class="pull-right btn btn-primary">
+						</div>
+					</div>
+				<fieldset>
+						<legend>My Account Information</legend>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" for="input-username">User Name</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{username}" onblur="usernameUnique()" placeholder="User Name" id="input-username" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" for="input-password">Password</label>
+							<div class="col-sm-10">
+								<input type="password" th:field="*{password}" placeholder="Password" id="input-password" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group required">
+							<label class="col-sm-2 control-label" for="confirm">Password Confirm</label>
+							<div class="col-sm-10">
+								<input type="password" name="confirm" placeholder="Password Confirm" id="confirm" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="imghead">Picture</label>
+							<div class="col-sm-10 big-photo edit">
+								<div id="preview">
+									<img id="imghead" border="0" th:src="@{/image/upload/photo_icon.png}"
+										width="90" height="90" onclick="$('#previewImg').click();">
+								</div>
+								<input type="file" name="imgFile" onchange="previewImage(this)"
+									style="display: none;" id="previewImg" accept="image/gif, image/bmp, image/jpg, image/jpeg, image/png">
+								<!-- <input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple=""> -->
+							</div>
+						</div>
+						<div class="form-group edit">
+							<label class="col-sm-2 control-label" for="input-username">&nbsp;</label>
+							<div class="col-sm-10">
+								<label id='' for=''>
+									<div style='color:#FF5733' ;=''>
+										<a onclick="$('#previewImg').click();">Click Here To Upload Picture<p> Size Limit In 2MB.</a>
+									</div>
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id="account">
+						<legend>My Personal Details</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-firstname">First Name</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{firstname}" placeholder="First Name" id="input-firstname" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{lastname}" placeholder="Last Name" id="input-lastname" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-email">E-Mail</label>
+							<div class="col-sm-10">
+								<input type="email" th:field="*{email}" placeholder="E-Mail" id="input-email" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-telephone">Telephone</label>
+							<div class="col-sm-10">
+								<input type="tel" th:field="*{telephone}" placeholder="Telephone" id="input-telephone" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-fax">Fax</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{fax}" placeholder="Fax" id="input-fax" class="form-control">
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id="address">
+						<legend>My Address</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-company">Company</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{company}" placeholder="Company" id="input-company" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-address-1">Address 1</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{address1}" placeholder="Address 1" id="input-address-1" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-address-2">Address 2</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{address2}" placeholder="Address 2" id="input-address-2" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-city">City</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{city}" placeholder="City" id="input-city" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-postcode">Post Code</label>
+							<div class="col-sm-10">
+								<input type="text" th:field="*{postCode}" placeholder="Post Code" id="input-postcode" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="input-country">Country</label>
+							<div class="col-sm-10">
+								<select name="country_id" id="input-country" class="form-control" th:field="*{country}">
+									<option value="Malta">Malta</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset th:include="com_page :: com_page_blank">
+						<legend>Newsletter</legend>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Subscribe</label>
+							<div class="col-sm-10">
+								<label class="radio-inline">
+									<input type="radio" name="newsletter" value="1"> Yes
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="newsletter" value="0" checked="checked"> No
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<div class="buttons">
+						<div class="">
+							<c th:replace="com_page :: com_page_blank">I have read and agree to the <a href="#" class="agree"><b>Pricing Tables</b></a>
+							<input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;</c>
+							<input type="submit" value="Continue" class="pull-right btn btn-primary visible-md-block visible-lg-block">
+							<input type="submit" value="Continue" class="pull-right btn btn-primary btn-block visible-xs-block visible-sm-block">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //Main Container -->
+	
+
+	<!-- Footer Container -->
+	<div th:include="com_page :: com_page_foot"></div>
+	<!-- //end Footer Container -->
+
+    </div>
+	
+	<div th:replace="com_page :: com_page_foot_tag"></div>	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<script>
+		$(function() {
+		    $("#registForm").validate({
+		    	rules: {
+		    	      username: {
+		    	        required: true,
+		    	      },
+		    	      password: {
+		    	        required: true,
+		    	        minlength: 6
+		    	      },
+		    	      confirm: {
+		    	        required: true,
+		    	        equalTo: "#input-password"
+		    	      }
+		    	},
+		    	messages: {
+		    		username: {
+		    	        required: "<div style='color:#FF5733';>Please Input Your 'User Name'</div>",
+		    	      },
+		    	      password: {
+		    	        required: "<div style='color:#FF5733';>Please Input Your Password</div>",
+		    	        minlength: "<div style='color:#FF5733';>Password Cann't Less than 6 letters</div>"
+		    	      },
+		    	      confirm: {
+		    	        required: "<div style='color:#FF5733';>Please Confirm Your Password</div>",
+		    	        equalTo: "<div style='color:#FF5733';>Two Password Entries are Inconsistent</div>"
+		    	      }
+		    	}
+		    });
+		});
+		
+		//Confirm Username Unique
+		function usernameUnique(){
+			var url = $("#usernameUniqueUrl").attr("href");
+			if($("#input-username").val() != ""){
+				$.ajax({ 
+					     type: 'POST', 
+					     url: url , 
+					    data: {
+							username : $("#input-username").val()	
+						} , 
+					    dataType: 'json' , 
+					    success: function(data){
+							if(data == false){
+								$("#input-username-error").remove();
+								$("#input-username").after("<label id='input-username-error' for='input-username'><div style='color:#FF5733' ;=''>User Name Exist</div></label>");
+							}else{
+								$("#input-username-error").remove();
+								$("#input-username").attr("readonly","readonly");
+								$("#input-username").after("<label id='input-username-success' for='input-username'>Congratulation ! This is a Unique 'User Name' !<br/><div style='color:#335bff' ;='' onclick='unlockUsername()'><a>Click Here To Change 'User Name'</a></div></label>");
+							}
+						} 
+					});
+			}
+		};
+		
+		function unlockUsername(){
+			$("#input-username-success").remove();
+			$("#input-username").removeAttr("readonly","readonly");
+			$("#input-username").focus();
+		};
+		
+		//图片上传预览    IE是用了滤镜。
+		function previewImage(file) {
+			var MAXWIDTH = 90;
+			var MAXHEIGHT = 90;
+			var div = document.getElementById('preview');
+			if (file.files && file.files[0]) {
+				div.innerHTML = "<img id=imghead onclick=$('#previewImg').click()>";
+				var img = document.getElementById('imghead');
+				img.onload = function() {
+					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
+							img.offsetWidth, img.offsetHeight);
+					img.width = rect.width;
+					img.height = rect.height;
+					//                 img.style.marginLeft = rect.left+'px';
+					img.style.marginTop = rect.top + 'px';
+				}
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					img.src = evt.target.result;
+				}
+				reader.readAsDataURL(file.files[0]);
+			} else //兼容IE
+			{
+				var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+				file.select();
+				var src = document.selection.createRange().text;
+				div.innerHTML = '<img id=imghead>';
+				var img = document.getElementById('imghead');
+				img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+				var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
+						img.offsetWidth, img.offsetHeight);
+				status = ('rect:' + rect.top + ',' + rect.left + ','
+						+ rect.width + ',' + rect.height);
+				div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+			}
+		}
+		function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+			var param = {
+				top : 0,
+				left : 0,
+				width : width,
+				height : height
+			};
+			if (width > maxWidth || height > maxHeight) {
+				rateWidth = width / maxWidth;
+				rateHeight = height / maxHeight;
+
+				if (rateWidth > rateHeight) {
+					param.width = maxWidth;
+					param.height = Math.round(height / rateWidth);
+				} else {
+					param.width = Math.round(width / rateHeight);
+					param.height = maxHeight;
+				}
+			}
+			param.left = Math.round((maxWidth - param.width) / 2);
+			param.top = Math.round((maxHeight - param.height) / 2);
+			return param;
+		};
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+<fieldset id="account">
+	<legend>My Store Information</legend>
+	<div class="form-group required">
+		<label class="col-sm-2 control-label" for="">Store Name</label>
+		<div class="col-sm-10">
+			<div class="info" th:text="${storeInfo.storeName}">Store Name</div>
+		</div>
+	</div>
+</fieldset>
+<div class="buttons info">
+	<div class="pull-right">
+		<a th:href="@{/store/storeinfo.shopping}"><input id="editButton2" type="button"
+			value="My Detail Store Information" class="btn btn-primary"></a>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Regist Success!</title>
+	<meta charset="utf-8">
+	
+	<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage">
+
+
+    <div id="wrapper" class="wrapper-full ">
+	<!-- Header Container  -->
+	<div th:include="com_page :: com_page_head"></div>
+	<!-- //Header Container  -->
+	<!-- Main Container  -->
+	<div class="main-container container">
+	
+		<br/>
+		<center><h1><p id="word">5 seconds later , redirect to Login Page...</p></h1></center>
+		<center><a th:href="@{/user/loginpage.shopping}">if didn't redirect , please click HERE to Login Page</a></center>
+		<br/>
+		<br/>
+		<br/>
+	
+	</div>
+	<!-- //Main Container -->
+	
+
+	<!-- Footer Container -->
+	<div th:include="com_page :: com_page_foot"></div>
+	<!-- //end Footer Container -->
+
+    </div>
+	
+	<div th:replace="com_page :: com_page_foot_tag"></div>
+	<div th:replace="com_page :: com_page_script"></div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script >
+		function jump(count) {
+			var str = "seconds later , redirect to Login Page...";
+			window.setTimeout(function() {
+				count--;
+				if (count > 0) {
+					$('#word').text(count + str);
+					jump(count);
+				} else {
+					location.href = "loginpage.shopping";
+				}
+			}, 1000);
+		}
+		$(function() {
+			jump(5);
+		});
+	</script>
+	
+</body>
+</html>
+

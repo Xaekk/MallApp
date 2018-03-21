@@ -1,0 +1,354 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title th:text="|${goodsInfo.name}<<${storeInfo.storeName}|">goodsInfo</title>
+<meta charset="utf-8">
+
+<div th:include="com_page :: com_page_headTag"></div>
+</head>
+
+<body class="res layout-subpage">
+
+
+
+	<div id="wrapper" class="wrapper-full ">
+		<!-- Header Container  -->
+		<div th:include="com_page :: com_page_head"></div>
+		<!-- //Header Container  -->
+		<!-- Main Container  -->
+		<div class="main-container container">
+			<ul class="breadcrumb">
+				<li><a th:href="@{/}"><i class="fa fa-home"></i></a></li>
+				<li>Goods Information</li>
+			</ul>
+
+			<div class="row">
+				<!--Middle Part Start-->
+				<div id="content" class="col-md-12 col-sm-12">
+
+					<div class="product-view row">
+						<div class="left-content-product col-lg-10 col-sm-10 col-xs-12">
+							<div class="row">
+								<div
+									class="content-product-left class-honizol col-sm-6 col-xs-12 ">
+									<div class="large-image  ">
+										<img itemprop="image" class="product-image-zoom"
+											th:src="@{/}+${goodsInfo.imageDir}"
+											th:data-zoom-image="@{/}+${goodsInfo.imageDir}"
+											th:title="${goodsInfo.name}" th:alt="${goodsInfo.name}">
+									</div>
+									<a class="thumb-video pull-left"
+										href="https://www.youtube.com/watch?v=HhabgvIIXik"><i
+										class="fa fa-youtube-play" th:replace="com_page :: com_page_blank"></i></a>
+									<div id="thumb-slider"
+										class="owl-theme owl-loaded owl-drag full_slider" th:replace="com_page :: com_page_blank">
+										<a data-index="0" class="img thumbnail "
+											data-image="image/demo/shop/product/J9.jpg" title="Bint Beef">
+											<img src="image/demo/shop/product/J9.jpg" title="Bint Beef"
+											alt="Bint Beef">
+										</a> <a data-index="1" class="img thumbnail "
+											data-image="image/demo/shop/product/J6.jpg" title="Bint Beef">
+											<img src="image/demo/shop/product/J6.jpg" title="Bint Beef"
+											alt="Bint Beef">
+										</a> <a data-index="2" class="img thumbnail "
+											data-image="image/demo/shop/product/J5.jpg" title="Bint Beef">
+											<img src="image/demo/shop/product/J5.jpg" title="Bint Beef"
+											alt="Bint Beef">
+										</a> <a data-index="3" class="img thumbnail "
+											data-image="image/demo/shop/product/J4.jpg" title="Bint Beef">
+											<img src="image/demo/shop/product/J4.jpg" title="Bint Beef"
+											alt="Bint Beef">
+										</a>
+									</div>
+
+								</div>
+
+								<div class="content-product-right col-sm-6 col-xs-12">
+									<div class="title-product">
+										<h1 th:text="${goodsInfo.name}">Bint Beef</h1>
+									</div>
+									<br/>
+									<!-- Review ---->
+									<div class="box-review form-group" th:replace="com_page :: com_page_blank">
+										<div class="ratings">
+											<div class="rating-box">
+												<span class="fa fa-stack"><i
+													class="fa fa-star-o fa-stack-1x"></i></span> <span
+													class="fa fa-stack"><i
+													class="fa fa-star-o fa-stack-1x"></i></span> <span
+													class="fa fa-stack"><i
+													class="fa fa-star-o fa-stack-1x"></i></span> <span
+													class="fa fa-stack"><i
+													class="fa fa-star-o fa-stack-1x"></i></span> <span
+													class="fa fa-stack"><i
+													class="fa fa-star-o fa-stack-1x"></i></span>
+											</div>
+										</div>
+
+										<a class="reviews_button" href=""
+											onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0
+											reviews</a> | <a class="write_review_button" href=""
+											onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write
+											a review</a>
+									</div>
+
+									<div class="product-label form-group">
+										<div class="product_page_price price" itemprop="offerDetails"
+											itemscope="" itemtype="http://data-vocabulary.org/Offer">
+											<span class="price-new glyphicon glyphicon-euro" itemprop="price" aria-hidden="true" th:text="${goodsInfo.price}" th:replace="com_page :: com_page_blank">114.00</span>
+											<span class="price-new" itemprop="price" th:text="'€ '+${goodsInfo.price}">$114.00</span> 
+											<span class="price-old" th:replace="com_page :: com_page_blank">$122.00</span>
+										</div>
+										<div class="stock" th:replace="com_page :: com_page_blank">
+											<span>Availability:</span> <span class="status-stock">In
+												Stock</span>
+										</div>
+									</div>
+
+									<div class="product-box-desc">
+										<div class="inner-box-desc" th:replace="com_page :: com_page_blank">
+											<div class="price-tax">
+												<span>Ex Tax:</span> $60.00
+											</div>
+											<div class="reward">
+												<span>Price in reward points:</span> 400
+											</div>
+											<div class="brand">
+												<span>Brand:</span><a href="#">Apple</a>
+											</div>
+											<div class="model">
+												<span>Product Code:</span> Product 15
+											</div>
+											<div class="reward">
+												<span>Reward Points:</span> 100
+											</div>
+										</div>
+										<div class="inner-box-desc">
+											<div class="brand">
+												<span><a th:href="@{/base/getStoreInfo.shopping?storeInfoPkId=}+${storeInfo.pkId}">Store Name :</a></span>&nbsp;<a th:href="@{/base/getStoreInfo.shopping?storeInfoPkId=}+${storeInfo.pkId}" th:text="${storeInfo.storeName}">Apple</a>
+											</div>
+											<div class="reward" th:if="${sallerInfo.telephone} != null">
+												<span>Seller Tell :</span>&nbsp;<a th:text="${sallerInfo.telephone}">400</a>
+											</div>
+											<div class="reward" th:if="${storeInfo.address} != null">
+												<span>Address :</span>&nbsp;<a th:text="${storeInfo.address}">address</a>
+											</div>
+										</div>
+									</div>
+
+
+									<div id="product">
+										<h4></h4>
+										<div class="image_option_type form-group required" th:replace="com_page :: com_page_blank">
+											<label class="control-label">Colors</label>
+											<ul class="product-options clearfix" id="input-option231">
+												<li class="radio"><label> <input
+														class="image_radio" type="radio" name="option[231]"
+														value="33"> <img src="image/demo/colors/blue.jpg"
+														data-original-title="blue +$12.00"
+														class="img-thumbnail icon icon-color"> <i
+														class="fa fa-check"></i> <label> </label>
+												</label></li>
+												<li class="radio"><label> <input
+														class="image_radio" type="radio" name="option[231]"
+														value="34"> <img src="image/demo/colors/brown.jpg"
+														data-original-title="brown -$12.00"
+														class="img-thumbnail icon icon-color"> <i
+														class="fa fa-check"></i> <label> </label>
+												</label></li>
+												<li class="radio"><label> <input
+														class="image_radio" type="radio" name="option[231]"
+														value="35"> <img src="image/demo/colors/green.jpg"
+														data-original-title="green +$12.00"
+														class="img-thumbnail icon icon-color"> <i
+														class="fa fa-check"></i> <label> </label>
+												</label></li>
+												<li class="selected-option"></li>
+											</ul>
+										</div>
+
+										<div class="box-checkbox form-group required" th:replace="com_page :: com_page_blank">
+											<label class="control-label">Checkbox</label>
+											<div id="input-option232">
+												<div class="checkbox">
+													<label for="checkbox_1"><input type="checkbox"
+														name="option[232][]" value="36" id="checkbox_1">
+														Checkbox 1 (+$12.00)</label>
+												</div>
+												<div class="checkbox">
+													<label for="checkbox_2"><input type="checkbox"
+														name="option[232][]" value="36" id="checkbox_2">
+														Checkbox 2 (+$36.00)</label>
+												</div>
+												<div class="checkbox">
+													<label for="checkbox_3"><input type="checkbox"
+														name="option[232][]" value="36" id="checkbox_3">
+														Checkbox 3 (+$24.00)</label>
+												</div>
+												<div class="checkbox">
+													<label for="checkbox_4"><input type="checkbox"
+														name="option[232][]" value="36" id="checkbox_4">
+														Checkbox 4 (+$48.00)</label>
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group box-info-product">
+											<div class="option quantity">
+												<div class="input-group quantity-control" unselectable="on"
+													style="-webkit-user-select: none;">
+													<label>Qty : </label>&nbsp;<label th:text="${goodsInfo.count}">23</label>
+												</div>
+											</div>											
+											<div class="cart" th:replace="com_page :: com_page_blank">
+											<form th:action="@{/goods/deletegoods.shopping}" method="post">
+												<input type="hidden" name="goodsInfoPkId" th:value="${goodsInfo.pkId}">
+												<input type="submit" data-toggle="tooltip" title=""
+													value="DELETE" data-loading-text="Loading..."
+													id="button-cart" class="btn btn-mega btn-lg"
+													data-original-title="Edit Goods Detail">
+											</form>
+											</div>
+											<div class="add-to-links wish_comp" th:replace="com_page :: com_page_blank">
+												<ul class="blank list-inline">
+													<li class="wishlist"><a class="icon"
+														data-toggle="tooltip" title=""
+														onclick="wishlist.add('50');"
+														data-original-title="Add to Wish List"><i
+															class="fa fa-heart"></i> </a></li>
+													<li class="compare"><a class="icon"
+														data-toggle="tooltip" title=""
+														onclick="compare.add('50');"
+														data-original-title="Compare this Product"><i
+															class="fa fa-exchange"></i> </a></li>
+												</ul>
+											</div>
+
+										</div>
+
+									</div>
+									<!-- end box info product -->
+
+								</div>
+							</div>
+						</div>
+						
+						<section
+							class="col-lg-2 col-sm-2 col-xs-12 slider-products">
+							<a th:href="@{/base/getStoreInfo.shopping?storeInfoPkId=}+${storeInfo.pkId}">
+								<div class="module col-sm-12 four-block">
+									<div class="modcontent clearfix">
+										<div class="policy-detail">
+											<div class="banner-policy">
+												<div class="policy policy1">
+													<center>
+														<img th:src="@{/}+${storeInfo.imageDir}">
+													</center>
+													<br>
+													<center>
+														<a th:href="@{/base/getStoreInfo.shopping?storeInfoPkId=}+${storeInfo.pkId}" th:text="${storeInfo.storeName}">Apple</a>
+													</center>
+												</div>
+												<div class="policy policy1" th:replace="com_page :: com_page_blank">
+													<a href="#"> <span class="ico-policy">&nbsp;</span> 90
+														day <br> money back
+													</a>
+												</div>
+												<div class="policy policy2" th:replace="com_page :: com_page_blank">
+													<a href="#"> <span class="ico-policy">&nbsp;</span>
+														In-store exchange
+													</a>
+												</div>
+												<div class="policy policy3" th:replace="com_page :: com_page_blank">
+													<a href="#"> <span class="ico-policy">&nbsp;</span>
+														lowest price guarantee
+													</a>
+												</div>
+												<div class="policy policy4" th:replace="com_page :: com_page_blank">
+													<a href="#"> <span class="ico-policy">&nbsp;</span>
+														shopping guarantee
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</section>
+					</div>
+
+					<!-- Product Tabs -->
+					<div class="producttab ">
+						<div class="tabsslider  vertical-tabs col-xs-12">
+							<ul class="nav nav-tabs col-lg-2 col-sm-3">
+								<li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
+								<li class="item_nonactive" th:replace="com_page :: com_page_blank"><a data-toggle="tab"
+									href="#tab-5">Custom Tab</a></li>
+							</ul>
+							<div class="tab-content col-lg-10 col-sm-9 col-xs-12">
+								<div id="tab-1" class="tab-pane fade active in" th:text="${goodsDetailDis} == null or ${goodsDetailDis.discribe} == null ? '' : ${goodsDetailDis.discribe}">
+									<p>Lorem ipsum dolor sit amet, consetetursadipscing elitr,
+										sed diam nonumy eirmodtempor invidunt ut labore et doloremagna
+										aliquyam erat, sed diam voluptua.</p>
+									<p>At vero eos et accusam et justo duo dolores et ea rebum.
+										Stet clita kasd gubergren,no sea takimata sanctus est Lorem
+										ipsumdolor sit amet. Lorem ipsum dolor sitamet, consetetur
+										sadipscing elitr, seddiam nonumy eirmod tempor invidunt ut
+										labore et dolore magna aliquyam erat,sed diam voluptua.</p>
+									<p>
+										At vero eos et accusam et justo duo dolores et ea rebum. Stet
+										clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+										dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+										sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+										labore et dolore magna aliquyam erat, sed diam voluptua. At
+										vero eos et accusam et justo duo dolores et ea rebum. Stet
+										clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+										dolor sit amet. <br>
+									</p>
+
+								</div>
+								<div id="tab-5" class="tab-pane fade" th:replace="com_page :: com_page_blank">
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+										sed diam nonumy eirmod tempor invidunt ut labore et dolore
+										magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+										et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+										no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+										ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+										nonumy eirmod tempor invidunt ut labore et dolore magna
+										aliquyam erat, sed diam voluptua.</p>
+									<p>At vero eos et accusam et justo duo dolores et ea rebum.
+										Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+										ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+										sadipscing elitr.</p>
+									<p>Sed diam nonumy eirmod tempor invidunt ut labore et
+										dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+										accusam et justo duo dolores et ea rebum. Stet clita kasd
+										gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+										amet.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //Product Tabs -->
+				</div>
+
+
+			</div>
+			<!--Middle Part End-->
+		</div>
+		<!-- //Main Container -->
+
+		<!-- Footer Container -->
+		<div th:include="com_page :: com_page_foot"></div>
+		<!-- //end Footer Container -->
+
+	</div>
+
+	<div th:replace="com_page :: com_page_foot_tag"></div>
+	
+	<div th:replace="com_page :: com_page_script"></div>
+	
+</body>
+</html>
+
